@@ -15,6 +15,7 @@ public class Order {
 		super();
 		this.orderId = orderId;
 		this.customer = customer;
+		this.deliveryAddress=customer.getAddress();
 	}
 
 	public int getOrderId() {

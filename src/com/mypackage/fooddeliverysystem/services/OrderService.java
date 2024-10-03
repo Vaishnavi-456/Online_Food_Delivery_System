@@ -30,9 +30,10 @@ public class OrderService {
 		
 		for(Order order : orders) {
 			
-			if(order.getOrderId() == orderId)
+			if(order.getOrderId() == orderId) {
 				orderToAssign = order;
 				break;
+			}
 		}
 		
 		if(orderToAssign == null) {
@@ -44,9 +45,10 @@ public class OrderService {
 		
 		for(DeliveryPerson deliveryPerson : deliveryPersons) {
 			
-			if(deliveryPerson.getDeliveryPersonId() == deliveryPersonId)
+			if(deliveryPerson.getDeliveryPersonId() == deliveryPersonId) {
 				deliveryPersonToAssign = deliveryPerson;
 				break;
+			}
 		}
 		
 		if(deliveryPersonToAssign == null) {

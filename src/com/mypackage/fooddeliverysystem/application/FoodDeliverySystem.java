@@ -206,7 +206,10 @@ public class FoodDeliverySystem {
         String username = scanner.nextLine();
         System.out.print("Enter Contact No.: ");
         long contactNo = scanner.nextLong();
-        Customer customer = new Customer(userId, username, contactNo);
+        scanner.nextLine();
+        System.out.print("Enter Address: ");
+        String address = scanner.nextLine();
+        Customer customer = new Customer(userId, username, contactNo,address);
         customerService.addCustomer(customer);
         System.out.println("Customer added successfully!");
     }
@@ -258,6 +261,7 @@ public class FoodDeliverySystem {
         Customer customer = customerService.getCustomer(customerId);
         if (customer != null) {
             System.out.println(customer.getCart());
+            
         } else {
             System.out.println("Customer not found.");
         }
@@ -272,6 +276,7 @@ public class FoodDeliverySystem {
             order.setItems(customer.getCart().getItems());
             orderService.getOrders().add(order);
             System.out.println("Order placed successfully! Order ID: " + order.getOrderId());
+            order.setStatus("Delivered");
         } else {
             System.out.println("Customer not found.");
         }

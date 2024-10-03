@@ -32,16 +32,30 @@ public class Cart {
 	 }
 
 	 @Override
-	    public String toString() {
-	        StringBuilder cartContents = new StringBuilder("Cart Contents:\n");
-	        for (Map.Entry<FoodItem, Integer> entry : items.entrySet()) {
-	            cartContents.append(entry.getKey().getName())
-	                        .append(" - Quantity: ")
-	                        .append(entry.getValue())
-	                        .append("\n");
-	        }
-	        return cartContents.toString();
-	    }
+	 public String toString() {
+	     StringBuilder cartContents = new StringBuilder("Cart Contents:\n");
+	     double totalCost = 0; 
+
+	     for (Map.Entry<FoodItem, Integer> entry : items.entrySet()) {
+	         FoodItem item = entry.getKey();
+	         int quantity = entry.getValue();
+	         double cost = item.getPrice() * quantity;  // Calculate the cost for the item
+	         totalCost += cost;
+	         
+	         cartContents.append(item.getName())
+	                     .append(" - Quantity: ")
+	                     .append(quantity)
+	                     .append(" - Price per item: Rs. ")
+	                     .append(item.getPrice())
+	                     .append(" - Total Cost: Rs. ")
+	                     .append(cost)
+	                     .append("\n");
+	     }
+
+	     cartContents.append("\nTotal Price: Rs. ").append(totalCost);  
+	     return cartContents.toString();
+	 }
+
 }
 
 	

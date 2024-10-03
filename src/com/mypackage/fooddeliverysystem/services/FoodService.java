@@ -32,8 +32,10 @@ public class FoodService {
 		
 		for(Restaurant restaurant : restaurants) {
 			if(restaurant.getId() == restaurantId)
+			{
 				restaurant.addFoodItem(foodItem);
 			    break;
+			    }
 		}
 		
 	}
